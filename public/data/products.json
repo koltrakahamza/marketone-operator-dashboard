@@ -1,0 +1,200 @@
+[
+  {
+    "id": "p01",
+    "name": "Domate të freskëta",
+    "category": "Fruta & perime",
+    "priceCents": 190,
+    "stock": 48,
+    "unit": "500 g",
+    "supplier": "Farma e Gjelbër",
+    "image": "/images/p01.jpg",
+    "featured": true
+  },
+  {
+    "id": "p02",
+    "name": "Avokado Hass",
+    "category": "Fruta & perime",
+    "priceCents": 160,
+    "stock": 4,
+    "unit": "copë",
+    "supplier": "Farma e Gjelbër",
+    "image": "/images/p02.jpg",
+    "featured": true
+  },
+  {
+    "id": "p03",
+    "name": "Qumësht i freskët",
+    "category": "Bulmet & vezë",
+    "priceCents": 145,
+    "stock": 36,
+    "unit": "1 L",
+    "supplier": "Bjeshka Dairy",
+    "image": "/images/p03.jpg",
+    "featured": true
+  },
+  {
+    "id": "p04",
+    "name": "Bukë artizanale",
+    "category": "Furrë",
+    "priceCents": 220,
+    "stock": 24,
+    "unit": "500 g",
+    "supplier": "Furra e Lagjes",
+    "image": "/images/p04.jpg",
+    "featured": true
+  },
+  {
+    "id": "p05",
+    "name": "Vezë nga ferma",
+    "category": "Bulmet & vezë",
+    "priceCents": 280,
+    "stock": 18,
+    "unit": "6 copë",
+    "supplier": "Farma e Gjelbër",
+    "image": "/images/p05.jpg",
+    "featured": false
+  },
+  {
+    "id": "p06",
+    "name": "Djathë i stazhionuar",
+    "category": "Bulmet & vezë",
+    "priceCents": 350,
+    "stock": 12,
+    "unit": "250 g",
+    "supplier": "Bjeshka Dairy",
+    "image": "/images/p06.jpg",
+    "featured": false
+  },
+  {
+    "id": "p07",
+    "name": "Portokalle të ëmbla",
+    "category": "Fruta & perime",
+    "priceCents": 180,
+    "stock": 42,
+    "unit": "kg",
+    "supplier": "Farma e Gjelbër",
+    "image": "/images/p07.jpg",
+    "featured": false
+  },
+  {
+    "id": "p08",
+    "name": "Mollë të kuqe",
+    "category": "Fruta & perime",
+    "priceCents": 150,
+    "stock": 0,
+    "unit": "kg",
+    "supplier": "Farma e Gjelbër",
+    "image": "/images/p08.jpg",
+    "featured": false
+  },
+  {
+    "id": "p09",
+    "name": "Banane",
+    "category": "Fruta & perime",
+    "priceCents": 175,
+    "stock": 32,
+    "unit": "kg",
+    "supplier": "Farma e Gjelbër",
+    "image": "/images/p09.jpg",
+    "featured": false
+  },
+  {
+    "id": "p10",
+    "name": "Kruasan me gjalpë",
+    "category": "Furrë",
+    "priceCents": 120,
+    "stock": 8,
+    "unit": "copë",
+    "supplier": "Furra e Lagjes",
+    "image": "/images/p10.jpg",
+    "featured": false
+  },
+  {
+    "id": "p11",
+    "name": "Kafe në kokrra",
+    "category": "Kafe & çaj",
+    "priceCents": 690,
+    "stock": 3,
+    "unit": "250 g",
+    "supplier": "Mulliri Coffee",
+    "image": "/images/p11.jpg",
+    "featured": false
+  },
+  {
+    "id": "p12",
+    "name": "Oriz kokërrgjatë",
+    "category": "Artikuj bazë",
+    "priceCents": 240,
+    "stock": 40,
+    "unit": "1 kg",
+    "supplier": "Shtëpia e Shijes",
+    "image": "/images/p12.jpg",
+    "featured": false
+  },
+  {
+    "id": "p13",
+    "name": "Makarona penne",
+    "category": "Artikuj bazë",
+    "priceCents": 160,
+    "stock": 28,
+    "unit": "500 g",
+    "supplier": "Shtëpia e Shijes",
+    "image": "/images/p13.jpg",
+    "featured": false
+  },
+  {
+    "id": "p14",
+    "name": "Vaj ulliri ekstra",
+    "category": "Artikuj bazë",
+    "priceCents": 780,
+    "stock": 15,
+    "unit": "500 ml",
+    "supplier": "Ullishtja",
+    "image": "/images/p14.jpg",
+    "featured": false
+  },
+  {
+    "id": "p15",
+    "name": "Lëng portokalli",
+    "category": "Pije",
+    "priceCents": 230,
+    "stock": 20,
+    "unit": "1 L",
+    "supplier": "Freskia",
+    "image": "/images/p15.jpg",
+    "featured": false
+  },
+  {
+    "id": "p16",
+    "name": "Ujë natyral",
+    "category": "Pije",
+    "priceCents": 60,
+    "stock": 0,
+    "unit": "1.5 L",
+    "supplier": "Burimi",
+    "image": "/images/p16.jpg",
+    "featured": false
+  },
+  {
+    "id": "p17",
+    "name": "Luleshtrydhe",
+    "category": "Fruta & perime",
+    "priceCents": 320,
+    "stock": 5,
+    "unit": "250 g",
+    "supplier": "Farma e Gjelbër",
+    "image": "/images/p17.jpg",
+    "featured": false
+  },
+  {
+    "id": "p18",
+    "name": "Kos me fruta",
+    "category": "Bulmet & vezë",
+    "priceCents": 135,
+    "stock": 22,
+    "unit": "200 g",
+    "supplier": "Bjeshka Dairy",
+    "image": "/images/p18.jpg",
+    "featured": false
+  }
+]

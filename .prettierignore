@@ -1,0 +1,9 @@
+node_modules
+dist
+.cache
+test-results
+playwright-report
+package-lock.json
+deploy/local
+docs/screenshots
+*.tsbuildinfo
