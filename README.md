@@ -8,6 +8,13 @@ Prototip funksional për Detyrën 1 të INFINITRON. Një hapësirë e thjeshtë 
 
 ![Pamja e dashboard-it](docs/screenshots/dashboard-desktop.png)
 
+## Detyra 2 · Propozimi teknik
+
+Propozimi prej dy faqesh mbulon arkitekturën, rolet, entitetet e databazës, API-të, sigurinë dhe ndarjen MVP/faza e dytë. Përfshin diagramin, supozimet e biznesit, burimet dhe deklarimin e AI.
+
+- [PDF për rishikim dhe dorëzim](docs/task2/MarketOne-Propozim-Teknik.pdf)
+- [Teksti i redaktueshëm](docs/task2/MarketOne-Propozim-Teknik.md)
+
 ## Nisja lokale
 
 Kërkohet Node.js 22.12+ (rekomandohet Node 24) dhe npm.
@@ -126,7 +133,7 @@ Rezultatet e verifikimit dhe kufizimet e testimit janë te [docs/VERIFICATION.md
 - Stoku dhe çmimet janë statike. Konfirmimi nuk ndryshon JSON-in dhe nuk krijon porosi në server.
 - Shporta është për skedën aktuale. Nuk ka sinkronizim mes pajisjeve ose historik porosish.
 - Transporti dhe llogaritja fiskale nuk janë pjesë e kërkesës; totali përfshin vetëm produktet.
-- Ky repository mbulon vetëm **Detyrën 1**.
+- Kodi i aplikacionit mbulon **Detyrën 1**. Propozimi teknik i **Detyrës 2** është te `docs/task2/`; nuk është implementuar backend-i i propozuar.
 
 ## Hostimi i përkohshëm
 

@@ -18,6 +18,14 @@ Fotografitë kryesore të 18 produkteve janë krijuar me mjetin e integruar Open
 
 Fotografia e hyrjes dhe imazhet rezervë të produkteve vijnë nga Unsplash. Ikonat janë nga Lucide dhe fonti nga Manrope.
 
+## Detyra 2
+
+OpenAI Codex u përdor për analizën e kërkesave, propozimin e arkitekturës, modelin e të dhënave, API-të, rrjedhën e porosisë, sigurinë dhe kufijtë e MVP-së. U përdor edhe për rishikimin e burimeve OWASP/PostgreSQL, përmbledhjen e tekstit, diagramin dhe krijimin/verifikimin e PDF-së prej dy faqesh. Nuk u zhvillua backend për Detyrën 2.
+
+Përdoruesi dha kontekstin e platformës B2B për Shqipërinë, kërkoi analizë të hollësishme dhe përcaktoi drejtimin vizual. Zgjedhjet teknike të dokumentit janë propozime të asistuara me AI; nuk janë dokumentuar ndryshime teknike të pavarura të kandidatit. Kandidati duhet ta rishikojë deklarimin sipas kontributeve reale përpara dorëzimit.
+
+Dokumenti: [MarketOne — Propozim teknik](docs/task2/MarketOne-Propozim-Teknik.pdf).
+
 ## Vendimet e dhëna nga përdoruesi
 
 - Të realizohet fillimisht vetëm Detyra 1.
