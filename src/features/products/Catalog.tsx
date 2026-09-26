@@ -72,91 +72,101 @@ export function Catalog({
           <span /> Katalog demo
         </span>
       </div>
-      <div className="catalog-search-row">
-        <div className="search-input">
-          <Search size={19} />
-          <input
-            type="search"
-            placeholder="Kërko një produkt, kategori, furnitor…"
-            aria-label="Kërko produkte"
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-          />
-          {query && (
-            <button
-              onClick={() => setQuery('')}
-              className="icon-button"
-              aria-label="Pastro kërkimin"
-            >
-              <X size={16} />
-            </button>
-          )}
-        </div>
-        <label className={`stock-filter ${inStock ? 'active' : ''}`}>
-          <input
-            type="checkbox"
-            aria-label="Vetëm në stok"
-            checked={inStock}
-            onChange={(event) => setInStock(event.target.checked)}
-          />
-          <SlidersHorizontal size={16} />
-          <span>Vetëm në stok</span>
-        </label>
-      </div>
-      <div className="category-tabs" role="group" aria-label="Filtro sipas kategorisë">
-        {categories.map((item) => (
-          <button key={item} aria-pressed={category === item} onClick={() => setCategory(item)}>
-            {item}
-          </button>
-        ))}
-      </div>
-      <div className="catalog-toolbar">
-        <p aria-live="polite">
-          {state.status === 'loading' ? (
-            'Duke përgatitur katalogun…'
-          ) : state.status === 'error' ? (
-            'Katalogu nuk u ngarkua'
-          ) : (
-            <>
-              <strong>{filtered.length}</strong> produkte{' '}
-              {filteredOn ? 'të gjetura' : 'për t’u zbuluar'}
-            </>
-          )}
-          {filteredOn && (
-            <button className="reset-filters" onClick={reset}>
-              Pastro filtrat <X size={12} />
-            </button>
-          )}
-        </p>
-        <div className="catalog-view-tools">
-          <label className="sort-control">
-            <ArrowDownUp size={14} />
-            <select
-              aria-label="Rendit produktet"
-              value={sort}
-              onChange={(event) => setSort(event.target.value)}
-            >
-              <option value="featured">Të përzgjedhura</option>
-              <option value="price-asc">Çmimi: në rritje</option>
-              <option value="price-desc">Çmimi: në zbritje</option>
-              <option value="name">Emri: A–Z</option>
-            </select>
+      <div className="catalog-controls">
+        <div className="catalog-search-row">
+          <div className="search-input">
+            <Search size={19} />
+            <input
+              type="search"
+              placeholder="Kërko një produkt, kategori, furnitor…"
+              aria-label="Kërko produkte"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+            />
+            {query && (
+              <button
+                onClick={() => setQuery('')}
+                className="icon-button"
+                aria-label="Pastro kërkimin"
+              >
+                <X size={16} />
+              </button>
+            )}
+          </div>
+          <label className={`stock-filter ${inStock ? 'active' : ''}`}>
+            <input
+              type="checkbox"
+              aria-label="Vetëm në stok"
+              checked={inStock}
+              onChange={(event) => setInStock(event.target.checked)}
+            />
+            <SlidersHorizontal size={16} />
+            <span className="stock-label-desktop">Vetëm në stok</span>
+            <span className="stock-label-mobile">Në stok</span>
           </label>
-          <div className="view-toggle" aria-label="Paraqitja e katalogut">
+        </div>
+        <div className="category-tabs" role="group" aria-label="Filtro sipas kategorisë">
+          {categories.map((item) => (
             <button
-              aria-label="Paraqitje me karta"
-              aria-pressed={view === 'grid'}
-              onClick={() => setView('grid')}
+              key={item}
+              aria-pressed={category === item}
+              onClick={(event) => {
+                setCategory(item);
+                event.currentTarget.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+              }}
             >
-              <LayoutGrid size={16} />
+              {item}
             </button>
-            <button
-              aria-label="Paraqitje me listë"
-              aria-pressed={view === 'list'}
-              onClick={() => setView('list')}
-            >
-              <List size={17} />
-            </button>
+          ))}
+        </div>
+        <div className="catalog-toolbar">
+          <p aria-live="polite">
+            {state.status === 'loading' ? (
+              'Duke përgatitur katalogun…'
+            ) : state.status === 'error' ? (
+              'Katalogu nuk u ngarkua'
+            ) : (
+              <>
+                <strong>{filtered.length}</strong> produkte{' '}
+                {filteredOn ? 'të gjetura' : 'për t’u zbuluar'}
+              </>
+            )}
+            {filteredOn && (
+              <button className="reset-filters" onClick={reset}>
+                Pastro filtrat <X size={12} />
+              </button>
+            )}
+          </p>
+          <div className="catalog-view-tools">
+            <label className="sort-control">
+              <ArrowDownUp size={14} />
+              <select
+                aria-label="Rendit produktet"
+                value={sort}
+                onChange={(event) => setSort(event.target.value)}
+              >
+                <option value="featured">Të përzgjedhura</option>
+                <option value="price-asc">Çmimi: në rritje</option>
+                <option value="price-desc">Çmimi: në zbritje</option>
+                <option value="name">Emri: A–Z</option>
+              </select>
+            </label>
+            <div className="view-toggle" aria-label="Paraqitja e katalogut">
+              <button
+                aria-label="Paraqitje me karta"
+                aria-pressed={view === 'grid'}
+                onClick={() => setView('grid')}
+              >
+                <LayoutGrid size={16} />
+              </button>
+              <button
+                aria-label="Paraqitje me listë"
+                aria-pressed={view === 'list'}
+                onClick={() => setView('list')}
+              >
+                <List size={17} />
+              </button>
+            </div>
           </div>
         </div>
       </div>

@@ -1,12 +1,11 @@
 import { useEffect, useReducer, useState } from 'react';
 import {
   ArrowRight,
-  Boxes,
+  Asterisk,
   Check,
   ChevronRight,
   Leaf,
   LogOut,
-  PackageCheck,
   ShoppingBag,
   Store,
   X,
@@ -158,70 +157,23 @@ function Dashboard({ onLogout }: { onLogout: () => void }) {
           </section>
           <div className="dashboard-columns">
             <div className="catalog-column">
-              <section className="catalog-banner" aria-label="Përzgjedhja e MarketOne">
+              <section className="catalog-intro" aria-label="Përzgjedhja e MarketOne">
+                <span className="intro-leaf">
+                  <Leaf size={24} strokeWidth={1.5} />
+                </span>
                 <div>
-                  <span className="banner-eyebrow">
-                    <span /> NGA KATALOGU YNË
-                  </span>
-                  <h2>
-                    Një market i mbushur.
-                    <br />
-                    Një ditë <em>më e mirë.</em>
-                  </h2>
-                  <p>Zbuloni produktet për raftet tuaja.</p>
-                  <a href="#catalog-title">
-                    Eksploro katalogun <ArrowRight size={15} />
-                  </a>
+                  <h2>Produkte të mira. Porosi të thjeshta.</h2>
+                  <p>
+                    {state.status === 'success'
+                      ? `${state.products.length} produkte · ${new Set(state.products.map((product) => product.category)).size} kategori`
+                      : 'Përzgjedhja për marketin tuaj'}{' '}
+                    <span>· Çdo ditë, në një vend.</span>
+                  </p>
                 </div>
-                <div className="banner-photo">
-                  <img
-                    src="/images/hero.jpg"
-                    alt="Produkte të freskëta"
-                    width="1000"
-                    height="750"
-                  />
-                  <span>
-                    <Leaf size={13} /> Të freskëta. Të përzgjedhura.
-                  </span>
-                </div>
+                <span className="intro-mark" aria-hidden="true">
+                  <Asterisk size={38} strokeWidth={1.4} />
+                </span>
               </section>
-              <div className="catalog-metrics">
-                <div>
-                  <span className="metric-icon">
-                    <Boxes size={19} />
-                  </span>
-                  <p>
-                    <strong>{state.status === 'success' ? state.products.length : '—'}</strong>
-                    <span>Produkte në katalog</span>
-                  </p>
-                </div>
-                <div>
-                  <span className="metric-icon olive">
-                    <Leaf size={19} />
-                  </span>
-                  <p>
-                    <strong>
-                      {state.status === 'success'
-                        ? new Set(state.products.map((p) => p.category)).size
-                        : '—'}
-                    </strong>
-                    <span>Kategori për të zgjedhur</span>
-                  </p>
-                </div>
-                <div>
-                  <span className="metric-icon sand">
-                    <PackageCheck size={19} />
-                  </span>
-                  <p>
-                    <strong>
-                      {state.status === 'success'
-                        ? state.products.filter((p) => p.stock > 0).length
-                        : '—'}
-                    </strong>
-                    <span>Produkte në gjendje</span>
-                  </p>
-                </div>
-              </div>
               {mode !== 'normal' && (
                 <div className="scenario-banner">
                   <span>

@@ -1,6 +1,8 @@
-import { ArrowDownToLine, ArrowRight, Check, CircleCheck, LoaderCircle } from 'lucide-react';
+import { ArrowDownToLine, ArrowRight, Check, CircleCheck, LoaderCircle, Store } from 'lucide-react';
 import { useState } from 'react';
 import { Modal } from '../../components/Modal';
+import { ProductImage } from '../../components/ProductImage';
+import { Brand } from '../../components/Brand';
 import type { Order, Product } from '../../types';
 import { money } from '../../lib/format';
 import { cartTotal } from './cart';
@@ -15,6 +17,8 @@ export function OrderReview({
   onConfirm: (order: Order) => void;
 }) {
   const [busy, setBusy] = useState(false);
+  const units = items.reduce((sum, item) => sum + item.quantity, 0);
+
   async function confirm() {
     if (busy || !items.length) return;
     setBusy(true);
@@ -26,17 +30,36 @@ export function OrderReview({
       totalCents: cartTotal(items),
     });
   }
+
   return (
     <Modal
       title="Rishikoni porosinë"
+      className="order-review-modal"
       onClose={() => {
         if (!busy) onClose();
       }}
     >
-      <p className="modal-intro">Një kontroll i fundit për Market Tilia.</p>
-      <div className="review-items">
+      <p className="modal-intro">Gjithçka gati? Hidhini edhe një sy përzgjedhjes suaj.</p>
+      <div className="review-store">
+        <span>
+          <Store size={20} />
+        </span>
+        <div>
+          <strong>Market Tilia</strong>
+          <small>Tiranë, Shqipëri</small>
+        </div>
+        <span className="demo-badge">Porosi demo</span>
+      </div>
+      <div className="review-section-heading">
+        <h3>Përzgjedhja juaj</h3>
+        <span>
+          {items.length} {items.length === 1 ? 'produkt' : 'produkte'} · {units} njësi
+        </span>
+      </div>
+      <ul className="review-items">
         {items.map(({ product, quantity }) => (
-          <div key={product.id}>
+          <li key={product.id}>
+            <ProductImage image={product.image} name={product.name} />
             <div>
               <strong>{product.name}</strong>
               <span>
@@ -44,15 +67,18 @@ export function OrderReview({
               </span>
             </div>
             <strong>{money(product.priceCents * quantity)}</strong>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
       <div className="review-total">
-        <span>Totali</span>
+        <div>
+          <span>Totali i porosisë</span>
+          <small>{units} njësi të përzgjedhura</small>
+        </div>
         <strong>{money(cartTotal(items))}</strong>
       </div>
       <div className="inline-note">
-        <CircleCheck size={17} />
+        <CircleCheck size={18} />
         <p>Kjo është një porosi demonstrimi. Nuk dërgohet te furnitorët dhe nuk kryhet pagesë.</p>
       </div>
       <button
@@ -70,11 +96,23 @@ export function OrderReview({
           </>
         )}
       </button>
+      <button className="button text-button full-width" disabled={busy} onClick={onClose}>
+        Kthehu për të ndryshuar porosinë
+      </button>
     </Modal>
   );
 }
 
 export function OrderSuccess({ order, onClose }: { order: Order; onClose: () => void }) {
+  const units = order.items.reduce((sum, item) => sum + item.quantity, 0);
+  const createdAt = new Intl.DateTimeFormat('sq-AL', {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  }).format(new Date(order.createdAt));
+
   function download() {
     const text = [
       'MARKETONE — POROSI DEMO',
@@ -98,27 +136,59 @@ export function OrderSuccess({ order, onClose }: { order: Order; onClose: () => 
     anchor.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
+
   return (
-    <Modal title="Porosia u përgatit" onClose={onClose}>
+    <Modal title="Porosia u përgatit" className="order-success-modal" onClose={onClose}>
       <div className="success-body">
         <span className="success-icon">
-          <Check size={34} />
+          <Check size={28} />
         </span>
-        <span className="eyebrow">GJITHÇKA NË RREGULL</span>
-        <h3>Gati për një fillim të mbarë.</h3>
-        <p>
-          Porosia juaj demo u konfirmua.
-          <br />
-          Mund ta shkarkoni përmbledhjen më poshtë.
-        </p>
-        <div className="order-receipt">
-          <span>{order.id}</span>
-          <strong>{money(order.totalCents)}</strong>
-          <small>
-            {order.items.reduce((sum, item) => sum + item.quantity, 0)} njësi të përzgjedhura
-          </small>
-        </div>
+        <h3>Një porosi. Gjithçka në vend.</h3>
+        <p>Përmbledhja juaj është gati për t’u shkarkuar.</p>
       </div>
+      <section className="order-receipt" aria-label="Mandati i porosisë demo">
+        <div className="receipt-brand">
+          <Brand />
+          <span>
+            <Check size={13} /> Konfirmuar · demo
+          </span>
+        </div>
+        <dl className="receipt-details">
+          <div>
+            <dt>Porosia</dt>
+            <dd>{order.id}</dd>
+          </div>
+          <div>
+            <dt>Data</dt>
+            <dd>{createdAt}</dd>
+          </div>
+          <div>
+            <dt>Marketi</dt>
+            <dd>Market Tilia, Tiranë</dd>
+          </div>
+        </dl>
+        <ul className="receipt-lines">
+          {order.items.map(({ product, quantity }) => (
+            <li key={product.id}>
+              <span>
+                <b>{quantity}×</b> {product.name}
+              </span>
+              <strong>{money(product.priceCents * quantity)}</strong>
+            </li>
+          ))}
+        </ul>
+        <div className="receipt-total">
+          <div>
+            <span>Totali i porosisë</span>
+            <small>
+              {units} njësi · {order.items.length}{' '}
+              {order.items.length === 1 ? 'produkt' : 'produkte'}
+            </small>
+          </div>
+          <strong>{money(order.totalCents)}</strong>
+        </div>
+        <p className="receipt-note">Vetëm për demonstrim. Nuk është faturë.</p>
+      </section>
       <button className="button primary full-width" onClick={download}>
         <ArrowDownToLine size={17} /> Shkarko përmbledhjen
       </button>

@@ -7,7 +7,7 @@
     "stock": 48,
     "unit": "500 g",
     "supplier": "Farma e Gjelbër",
-    "image": "/images/p01.jpg",
+    "image": "/images/catalog-atlas-v2.png#p01",
     "featured": true
   },
   {
@@ -18,7 +18,7 @@
     "stock": 4,
     "unit": "copë",
     "supplier": "Farma e Gjelbër",
-    "image": "/images/p02.jpg",
+    "image": "/images/catalog-atlas-v2.png#p02",
     "featured": true
   },
   {
@@ -29,7 +29,7 @@
     "stock": 36,
     "unit": "1 L",
     "supplier": "Bjeshka Dairy",
-    "image": "/images/p03.jpg",
+    "image": "/images/catalog-atlas-v2.png#p03",
     "featured": true
   },
   {
@@ -40,7 +40,7 @@
     "stock": 24,
     "unit": "500 g",
     "supplier": "Furra e Lagjes",
-    "image": "/images/p04.jpg",
+    "image": "/images/catalog-atlas-v2.png#p04",
     "featured": true
   },
   {
@@ -51,7 +51,7 @@
     "stock": 18,
     "unit": "6 copë",
     "supplier": "Farma e Gjelbër",
-    "image": "/images/p05.jpg",
+    "image": "/images/catalog-atlas-v2.png#p05",
     "featured": false
   },
   {
@@ -62,7 +62,7 @@
     "stock": 12,
     "unit": "250 g",
     "supplier": "Bjeshka Dairy",
-    "image": "/images/p06.jpg",
+    "image": "/images/catalog-atlas-v2.png#p06",
     "featured": false
   },
   {
@@ -73,7 +73,7 @@
     "stock": 42,
     "unit": "kg",
     "supplier": "Farma e Gjelbër",
-    "image": "/images/p07.jpg",
+    "image": "/images/catalog-atlas-v2.png#p07",
     "featured": false
   },
   {
@@ -84,7 +84,7 @@
     "stock": 0,
     "unit": "kg",
     "supplier": "Farma e Gjelbër",
-    "image": "/images/p08.jpg",
+    "image": "/images/catalog-atlas-v2.png#p08",
     "featured": false
   },
   {
@@ -95,7 +95,7 @@
     "stock": 32,
     "unit": "kg",
     "supplier": "Farma e Gjelbër",
-    "image": "/images/p09.jpg",
+    "image": "/images/catalog-atlas-v2.png#p09",
     "featured": false
   },
   {
@@ -106,7 +106,7 @@
     "stock": 8,
     "unit": "copë",
     "supplier": "Furra e Lagjes",
-    "image": "/images/p10.jpg",
+    "image": "/images/catalog-atlas-v2.png#p10",
     "featured": false
   },
   {
@@ -117,7 +117,7 @@
     "stock": 3,
     "unit": "250 g",
     "supplier": "Mulliri Coffee",
-    "image": "/images/p11.jpg",
+    "image": "/images/catalog-atlas-v2.png#p11",
     "featured": false
   },
   {
@@ -128,7 +128,7 @@
     "stock": 40,
     "unit": "1 kg",
     "supplier": "Shtëpia e Shijes",
-    "image": "/images/p12.jpg",
+    "image": "/images/catalog-atlas-v2.png#p12",
     "featured": false
   },
   {
@@ -139,7 +139,7 @@
     "stock": 28,
     "unit": "500 g",
     "supplier": "Shtëpia e Shijes",
-    "image": "/images/p13.jpg",
+    "image": "/images/catalog-atlas-v2.png#p13",
     "featured": false
   },
   {
@@ -150,7 +150,7 @@
     "stock": 15,
     "unit": "500 ml",
     "supplier": "Ullishtja",
-    "image": "/images/p14.jpg",
+    "image": "/images/catalog-atlas-v2.png#p14",
     "featured": false
   },
   {
@@ -161,7 +161,7 @@
     "stock": 20,
     "unit": "1 L",
     "supplier": "Freskia",
-    "image": "/images/p15.jpg",
+    "image": "/images/catalog-atlas-v2.png#p15",
     "featured": false
   },
   {
@@ -172,7 +172,7 @@
     "stock": 0,
     "unit": "1.5 L",
     "supplier": "Burimi",
-    "image": "/images/p16.jpg",
+    "image": "/images/catalog-atlas-v2.png#p16",
     "featured": false
   },
   {
@@ -183,7 +183,7 @@
     "stock": 5,
     "unit": "250 g",
     "supplier": "Farma e Gjelbër",
-    "image": "/images/p17.jpg",
+    "image": "/images/catalog-atlas-v2.png#p17",
     "featured": false
   },
   {
@@ -194,7 +194,7 @@
     "stock": 22,
     "unit": "200 g",
     "supplier": "Bjeshka Dairy",
-    "image": "/images/p18.jpg",
+    "image": "/images/catalog-atlas-v2.png#p18",
     "featured": false
   }
 ]

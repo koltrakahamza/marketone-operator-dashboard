@@ -1,6 +1,14 @@
 # Fotografitë
 
-Fotografitë ilustruese janë nga Unsplash dhe ruhen lokalisht për demonstrim. Produktet dhe furnitorët janë të simuluar; fotografitë nuk përfaqësojnë marka ose pako reale të këtyre furnitorëve.
+## Fotografitë e katalogut
+
+`public/images/catalog-atlas-v2.png` është krijuar me mjetin e integruar OpenAI `imagegen`: 18 fotografi ilustruese në një atlas 3 × 6, me ndriçim dhe sfond të njëtrajtshëm. Shihni [prompt-in e plotë](docs/IMAGE-PROMPT.md). `ProductImage` shfaq qelizën e produktit përkatës përmes SVG viewBox dhe clipPath; skedari shkarkohet një herë dhe ripërdoret në katalog, shportë dhe rishikim.
+
+Produktet dhe furnitorët janë të simuluar; fotografitë nuk përfaqësojnë marka ose pako reale të këtyre furnitorëve.
+
+## Hyrja dhe imazhet rezervë
+
+`hero.jpg` përdoret në hyrje. Fotografitë `p01.jpg`–`p18.jpg` përdoren si alternativë nëse atlasi nuk ngarkohet; nëse edhe ato dështojnë, shfaqet `fallback.svg`. Këto fotografi vijnë nga Unsplash dhe ruhen lokalisht për demonstrim.
 
 Licenca: https://unsplash.com/license
 

@@ -35,8 +35,11 @@ Butoni **Plotëso të dhënat demo** plotëson formularin; më pas zgjidhni **Hy
 - Shtim, ulje/rritje sasie, heqje dhe zbrazje e porosisë me konfirmim.
 - Kufij stoku; produktet pa stok kanë buton të çaktivizuar.
 - Total në EUR i llogaritur me numra të plotë në cent.
-- Rishikim, konfirmim demonstrues dhe shkarkim i përmbledhjes `.txt`.
+- Rishikim me miniatura, konfirmim demonstrues në formë mandati dhe shkarkim i përmbledhjes `.txt`.
 - Pamje responsive; shportë anësore në desktop, shirit dhe dialog në mobile.
+- Kërkim dhe kategori që qëndrojnë sipër gjatë shfletimit në mobile; kontrolle sasie më të mëdha.
+- Fotografi të njëtrajtshme të produkteve dhe imazhe rezervë në rast dështimi.
+- Sinjalizim i lehtë vizual kur ndryshon sasia ose totali, me respektim të reduced motion.
 - Loading skeleton, error me riprovim, katalog bosh, kërkim pa rezultate dhe shportë bosh.
 - Ruajtje e shportës dhe hyrjes në `sessionStorage` për skedën aktuale; dalja i pastron.
 - Dialogë me fokus të kufizuar brenda, mbyllje me Escape dhe rikthim të fokusit; mbështetje për reduced motion.
@@ -78,6 +81,8 @@ deploy/              Hostimi i izoluar dhe heqja e tij
 
 **State:** `useReducer` mban rregullat e sasive në një vend. Totali nxirret nga artikujt dhe nuk ruhet si state i dytë. Filtrat qëndrojnë në katalog; një hook merret me ngarkimin dhe anulon kërkesën me `AbortController` kur ndryshon skenari ose çmontohet faqja. Për këtë përmasë nuk nevojitet Redux ose një bibliotekë kërkesash.
 
+**Imazhet:** `ProductImage` shfaq një qelizë nga një atlas lokal përmes SVG `viewBox` dhe `clipPath`. Atlasi ripërdoret për 18 produktet pa kërkesa të veçanta; gabimi i ngarkimit aktivizon një fotografi rezervë, pastaj një SVG të përgjithshme. Prompt-i dhe përdorimi i AI janë dokumentuar.
+
 **Të dhënat:** përgjigjja JSON validohet në kohë ekzekutimi, përfshirë ID unike, çmime pozitive dhe stok të vlefshëm. Shporta e ruajtur pastrohet nga vlerat e pavlefshme dhe pajtohet me stokun pas ngarkimit.
 
 **Dizajni:** CSS i organizuar sipas pjesëve, variabla për ngjyrat, fonti Manrope i hostuar lokalisht dhe ikona Lucide. Nuk ka framework CSS: stilet janë të përshtatura për këtë ndërfaqe. Fotografitë dhe burimet listohen te [ASSETS.md](ASSETS.md).
@@ -112,6 +117,8 @@ BASE_URL=http://localhost:4173 npm run test:e2e
 Në PowerShell përdorni `$env:BASE_URL="http://localhost:4173"` dhe pastaj `npm run test:e2e`. Në serverin e demonstrimit testet përdorin `http://127.0.0.1:8094`.
 
 Testet përfshijnë hyrjen, kërkimin, stokun, rifreskimin, konfirmimin, shkarkimin, gabime të rrjetit, skenarët demo, tastierën, gjerësi ekrani 320–1440 px dhe kontrolle automatike aksesueshmërie me axe. Kontrolli automatik nuk zëvendëson vlerësimin manual.
+
+Rezultatet e verifikimit dhe kufizimet e testimit janë te [docs/VERIFICATION.md](docs/VERIFICATION.md).
 
 ## Kufizime të qëllimshme
 

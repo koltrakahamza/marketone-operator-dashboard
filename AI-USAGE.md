@@ -14,7 +14,9 @@ OpenAI Codex u përdor për krijimin dhe rishikimin e implementimit, përmes bis
 - Shkrimi dhe ekzekutimi i testeve; korrigjimet që dolën prej tyre.
 - Dokumentimi dhe konfigurimi i hostimit të veçuar.
 
-Fotografitë vijnë nga Unsplash; nuk janë krijuar me AI. Ikonat janë nga Lucide dhe fonti nga Manrope.
+Fotografitë kryesore të 18 produkteve janë krijuar me mjetin e integruar OpenAI `imagegen` si një imazh i vetëm me qeliza (atlas). Prompt-i dhe skedari janë dokumentuar te [docs/IMAGE-PROMPT.md](docs/IMAGE-PROMPT.md). AI u përdor edhe për përmirësimin e kartave, lexueshmërisë, kontrolleve mobile dhe mandatit demo.
+
+Fotografia e hyrjes dhe imazhet rezervë të produkteve vijnë nga Unsplash. Ikonat janë nga Lucide dhe fonti nga Manrope.
 
 ## Vendimet e dhëna nga përdoruesi
 

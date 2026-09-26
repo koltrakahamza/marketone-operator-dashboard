@@ -93,8 +93,23 @@ test('review, simulated confirmation and receipt download', async ({ page }) => 
   await screenshot(page, 'dashboard-order');
   await page.getByRole('button', { name: 'Rishiko porosinë' }).click();
   await expect(page.getByRole('dialog')).toContainText(/5[,.]70/);
+  await expect(page.locator('.review-items > li')).toHaveCount(3);
+  await screenshot(page, 'order-review');
+  expect(
+    (await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze())
+      .violations,
+  ).toEqual([]);
   await page.getByRole('button', { name: 'Konfirmo porosinë demo' }).click();
   await expect(page.getByRole('dialog', { name: 'Porosia u përgatit' })).toBeVisible();
+  await expect(page.getByRole('region', { name: 'Mandati i porosisë demo' })).toContainText(
+    /5[,.]70/,
+  );
+  await expect(page.locator('.receipt-lines > li')).toHaveCount(3);
+  await screenshot(page, 'order-confirmation');
+  expect(
+    (await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze())
+      .violations,
+  ).toEqual([]);
   const downloadEvent = page.waitForEvent('download');
   await page.getByRole('button', { name: 'Shkarko përmbledhjen' }).click();
   expect((await downloadEvent).suggestedFilename()).toMatch(/^MO-.*\.txt$/);
@@ -223,4 +238,62 @@ test('switching demo scenarios preserves the current order', async ({ page }) =>
   await expect(page.getByRole('article')).toHaveCount(18);
   await expect(page.getByTestId('cart-total')).toContainText(/1[,.]90/);
   await expect(page.getByRole('button', { name: 'Rishiko porosinë' })).toBeEnabled();
+});
+
+test('product photography loads locally and recovers from image failures', async ({ page }) => {
+  const atlasResponse = page.waitForResponse('**/images/catalog-atlas-v2.png');
+  await login(page);
+  expect((await atlasResponse).ok()).toBe(true);
+  await expect(page.locator('.product-photo svg.product-image')).toHaveCount(18);
+
+  await page.route('**/images/catalog-atlas-v2.png', (route) => route.abort());
+  await page.route('**/images/p01.jpg', (route) => route.abort());
+  await page.reload();
+  const tomato = page.getByRole('article', { name: 'Domate të freskëta', exact: true });
+  const avocado = page.getByRole('article', { name: 'Avokado Hass', exact: true });
+  await expect(tomato.locator('img')).toHaveAttribute('src', '/images/fallback.svg');
+  await expect(avocado.locator('img')).toHaveAttribute('src', '/images/p02.jpg');
+  await expect
+    .poll(() =>
+      avocado
+        .locator('img')
+        .evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth > 0),
+    )
+    .toBe(true);
+  await tomato
+    .getByRole('button', { name: 'Shto Domate të freskëta në porosi', exact: true })
+    .click();
+  await expect(page.getByTestId('cart-total')).toContainText(/1[,.]90/);
+});
+
+test('first product actions fit laptops and mobile search stays reachable while scrolling', async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await login(page);
+  const add = page.getByRole('button', { name: 'Shto Domate të freskëta në porosi', exact: true });
+  const bounds = await add.boundingBox();
+  expect(bounds!.y + bounds!.height).toBeLessThanOrEqual(800);
+  await screenshot(page, 'dashboard-laptop');
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.evaluate(() => window.scrollTo({ top: 850, behavior: 'instant' }));
+  const searchBounds = await page.getByRole('searchbox').boundingBox();
+  expect(searchBounds!.y).toBeGreaterThanOrEqual(0);
+  expect(searchBounds!.y + searchBounds!.height).toBeLessThan(100);
+  await screenshot(page, 'dashboard-mobile');
+  await page.getByRole('searchbox').fill('qumesht');
+  await expect(page.getByRole('article')).toHaveCount(1);
+  await page.getByRole('button', { name: 'Shto Qumësht i freskët në porosi', exact: true }).click();
+  await page.locator('.mobile-cart-trigger').click();
+  await page.getByRole('button', { name: 'Rishiko porosinë' }).click();
+  await expect(page.getByRole('dialog')).toContainText(/1[,.]45/);
+  await page.getByRole('button', { name: 'Konfirmo porosinë demo' }).click();
+  await expect(page.getByRole('region', { name: 'Mandati i porosisë demo' })).toContainText(
+    /1[,.]45/,
+  );
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(
+    true,
+  );
+  await screenshot(page, 'order-confirmation-mobile');
 });
