@@ -4,6 +4,8 @@ Prototip funksional për Detyrën 1 të INFINITRON. Një hapësirë e thjeshtë 
 
 **Ky është një demonstrim:** llogaria, produktet, furnitorët dhe konfirmimi i porosive janë të simuluara. Nuk kryhen pagesa dhe nuk dërgohen porosi te furnitorët.
 
+**Repository:** [koltrakahamza/marketone-operator-dashboard](https://github.com/koltrakahamza/marketone-operator-dashboard)
+
 **Demo live:** [Hapni MarketOne](https://marketone.178-104-201-39.sslip.io)
 
 ![Pamja e dashboard-it](docs/screenshots/dashboard-desktop.png)

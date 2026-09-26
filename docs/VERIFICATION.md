@@ -42,4 +42,4 @@ Për riprodhim, përdorni komandat në README. Të gjitha porositë e testimit j
 
 Katalogu shfaqet më lart; fotografitë kanë stil të njëtrajtshëm; kartat kanë çmime dhe butona të rreshtuar; teksti është më i lexueshëm; ndryshimi i sasive dhe totalit sinjalizohet lehtë; kërkimi dhe kategoritë qëndrojnë sipër në mobile; rishikimi ka miniatura dhe konfirmimi paraqitet si mandat demonstrimi.
 
-Vetëm Detyra 1 është implementuar. GitHub është shtyrë sipas kërkesës së përdoruesit. Propozimi teknik i Detyrës 2 gjendet te `docs/task2/`; verifikimet funksionale më sipër i përkasin vetëm aplikacionit të Detyrës 1.
+Vetëm Detyra 1 është implementuar. Projekti u publikua më 26 shtator 2026 në repository-n publik [koltrakahamza/marketone-operator-dashboard](https://github.com/koltrakahamza/marketone-operator-dashboard), me vetëm skedarët e MarketOne dhe PDF-në e Detyrës 2. Propozimi teknik i Detyrës 2 gjendet te `docs/task2/`; verifikimet funksionale më sipër i përkasin vetëm aplikacionit të Detyrës 1.
